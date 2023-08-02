@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './KeywordForm.css';
 import axios from 'axios';
 
+const apiKey=process.env.REACT_APP_API_KEY;
 
 const KeywordForm = () => {
 
@@ -19,7 +20,7 @@ const KeywordForm = () => {
             order: 'viewCount',
             q: keyword,
             type: 'video',
-            key: 'AIzaSyAfQB8VTFduLkPDUdyFC6lwI02MW4ZmPJ0', 
+            key: apiKey, 
         }}
       );
 
@@ -35,7 +36,7 @@ const KeywordForm = () => {
               params: {
                 part: 'statistics',
                 id: maxViewCountVideoId,
-                key: 'AIzaSyAfQB8VTFduLkPDUdyFC6lwI02MW4ZmPJ0',
+                key: apiKey,
               },
             }
           );
@@ -65,7 +66,7 @@ const KeywordForm = () => {
   };
 
   return (
-    <div class="container">
+    <div className="container">
     <h1>Keyword Search Volume 🔊</h1>
     <form onSubmit={handleSubmit}>
     <label htmlFor="keywordInput">Type the keyword:</label>
